@@ -54,3 +54,10 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
+gem 'rgeo', '~> 2.1'
+gem 'activerecord-postgis-adapter'
+gem 'simple_form', '~> 4.1'
+gem "autoprefixer-rails", "10.2.5"
+gem "font-awesome-sass", "~> 5.6.1"

@@ -10,16 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_28_083238) do
+ActiveRecord::Schema.define(version: 2022_02_28_100955) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "postgis"
 
   create_table "locations", force: :cascade do |t|
     t.string "name"
     t.point "latlon"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.geography "lonlat", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
+    t.geography "quadrilatere", limit: {:srid=>4326, :type=>"st_polygon", :geographic=>true}
   end
 
 end
