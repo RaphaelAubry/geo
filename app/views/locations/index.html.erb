@@ -1,0 +1,15 @@
+<h3>Liste</h3>
+
+<% @locations.each do |location| %>
+
+  <div class="">
+
+    <p><%= location.name %></p>
+    <p><%= location.lonlat %></p>
+    <p><%= location.quadrilatere %></p>
+
+  </div>
+
+<% end %>
+
+<%= link_to "retour", :back %>
