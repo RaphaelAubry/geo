@@ -1,15 +1,22 @@
 <h3>Liste</h3>
 
-<% @locations.each do |location| %>
+<div class="frame-list-map">
 
-  <div class="">
-
-    <p><%= location.name %></p>
-    <p><%= location.lonlat %></p>
-    <p><%= location.quadrilatere %></p>
-
+  <div>
+    <% @locations.each do |location| %>
+      <div class="">
+        <p><%= location.name %></p>
+        <p><%= location.lonlat %></p>
+        <p><%= location.quadrilatere %></p>
+      </div>
+    <% end %>
   </div>
 
-<% end %>
+  <div>
+    <div id="map">
+    </div>
+  </div>
+
+</div>
 
 <%= link_to "retour", :back %>

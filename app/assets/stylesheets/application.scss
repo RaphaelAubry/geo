@@ -50,3 +50,14 @@ $green: rgb(0, 95, 0);
 .string, .optional {
   margin: 5px 0px;
 }
+
+.frame-list-map {
+  display: grid;
+  grid-template-columns: 30vw 50vw;
+}
+
+#map {
+  width: 770px;
+  height: 500px;
+  border-radius: 4px;
+}
