@@ -1,4 +1,5 @@
 
+
 const initMap = () => {
 
   mapboxgl.accessToken = 'pk.eyJ1IjoicmFwaGFlbGF1YnJ5IiwiYSI6ImNreXd0b243dTBicTAycHF3eWl0NmFsOGsifQ.lyidIB2GZBCqpr1VUtzqEA';
@@ -9,9 +10,11 @@ const initMap = () => {
     zoom: 5 // starting zoom
   });
 
-  const coordinates = [[9, 46],[14, 46],[14, 42],[8, 43]]
-  console.log(coordinates[0])
+  const coordinates = extractCoord();
   console.log(coordinates)
+
+
+
   map.on('load', () => {
     // Add a data source containing GeoJSON data.
     map.addSource('maine', {
@@ -21,12 +24,12 @@ const initMap = () => {
         'geometry': {
           'type': 'Polygon',
           // These coordinates outline Maine.
-          'coordinates': [
-            coordinates
-          ]
+          'coordinates': coordinates
+
         }
       }
     });
+
 
     // Add a new layer to visualize the polygon.
     map.addLayer({
@@ -52,39 +55,13 @@ const initMap = () => {
     });
   });
 extractCoord();
+
 }
 
 const extractCoord = () => {
-  const polygons = document.querySelectorAll(".polygon")
-  polygons.forEach((polygon => {
-    console.log(polygon.dataset.polygon) //original data
+  const polygon = document.querySelector(".polygon")
 
-    const coord = polygon.dataset.polygon
-    const regex = /(POLYGON [()]{2}|[))]{2})|[,]/mg;
-    const subst = ``;
-    const result = coord.replace(regex, subst);
-    console.log(result) //after 2nd process
-
-
-    const regex2 = /[,]/g;
-    const subst2 = 0;
-    const result2 = result.replace(regex2, subst2);
-    console.log(result2) //after 3rd process
-
-    const regex3 = /([0-9]*[.][0-9] [0-9]*[.][0-9])/g;
-    const subst3 = ``;
-
-    const finals = []
-
-    //loop in the
-    const text = result2.match(regex3)
-    var novo = {}
-    novo = text[0]
-    console.log(text[0])
-    finals.push(text[0])
-    console.log(finals.join(" "))
-    return finals
-  }));
+    return polygon.dataset.polygon
 
 }
 

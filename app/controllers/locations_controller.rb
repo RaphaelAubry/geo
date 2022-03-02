@@ -1,4 +1,6 @@
 class LocationsController < ApplicationController
+  require 'rgeo/geo_json'
+
   def home
   end
 

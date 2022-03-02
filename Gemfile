@@ -61,3 +61,4 @@ gem 'activerecord-postgis-adapter'
 gem 'simple_form', '~> 4.1'
 gem "autoprefixer-rails", "10.2.5"
 gem "font-awesome-sass", "~> 5.6.1"
+gem 'rgeo-geojson', '~> 2.1'
