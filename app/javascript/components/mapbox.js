@@ -1,44 +1,25 @@
-
-
 const initMap = () => {
-
+  //Map instanciation
   mapboxgl.accessToken = 'pk.eyJ1IjoicmFwaGFlbGF1YnJ5IiwiYSI6ImNreXd0b243dTBicTAycHF3eWl0NmFsOGsifQ.lyidIB2GZBCqpr1VUtzqEA';
   const map = new mapboxgl.Map({
-    container: 'map', // container ID
-    style: 'mapbox://styles/mapbox/light-v10', // style URL
-    center: [8.2451, 46.6012], // starting position
-    zoom: 5 // starting zoom
+    container: 'map',
+    style: 'mapbox://styles/mapbox/light-v10',
+    center: [8.2451, 46.6012],
+    zoom: 5
   });
-
-  const coordinates = extractCoord();
-  console.log(coordinates)
-
-
 
   map.on('load', () => {
     // Add a data source containing GeoJSON data.
-    map.addSource('maine', {
-      'type': 'geojson',
-      'data': {
-        'type': 'Feature',
-        'geometry': {
-          'type': 'Polygon',
-          // These coordinates outline Maine.
-          'coordinates': coordinates
-
-        }
-      }
-    });
-
+    map.addSource(getFeatureID(), JSON.parse(getFeature()))
 
     // Add a new layer to visualize the polygon.
     map.addLayer({
       'id': 'maine',
       'type': 'fill',
-      'source': 'maine', // reference the data source
+      'source': getFeatureID(), // reference the data source
       'layout': {},
       'paint': {
-        'fill-color': '#0080ff', // blue color fill
+        'fill-color': '#0080ff',
         'fill-opacity': 0.5
       }
     });
@@ -46,7 +27,7 @@ const initMap = () => {
     map.addLayer({
       'id': 'outline',
       'type': 'line',
-      'source': 'maine',
+      'source': getFeatureID(),
       'layout': {},
       'paint': {
         'line-color': '#000',
@@ -54,15 +35,15 @@ const initMap = () => {
       }
     });
   });
-extractCoord();
-
 }
 
-const extractCoord = () => {
+const getFeature = () => {
   const polygon = document.querySelector(".polygon")
-
     return polygon.dataset.polygon
+}
 
+const getFeatureID = () => {
+  return document.querySelector(".polygon").dataset.id
 }
 
 export { initMap }

@@ -9,17 +9,7 @@
         <p><%= location.lonlat %></p>
         <p><%= location.quadrilatere %></p>
 
-        <% point = '{"type":"Feature",
-                    "geometry":{
-                      "type":"Polygon",
-                      "coordinates":[[[14, 47],[14, 46],[14, 42],[8, 43]]]
-                    },
-                    "properties":{
-                      "color":"red"
-                    }
-                  }' %>
-        <% feature = RGeo::GeoJSON.decode(point) %>
-        <div class="polygon" data-polygon="<%= feature.geometry.coordinates %>"></div>
+        <div class="polygon" data-id="<%= location.id %>" data-polygon="<%= @polygon.to_json %>"></div>
 
       </div>
     <% end %>
