@@ -1,8 +1,11 @@
 <h3>Liste</h3>
 
+
+
 <div class="frame-list-map">
 
   <div>
+    <%= render 'form' %>
     <% @locations.each do |location| %>
       <div class="">
         <p><%= location.name %></p>

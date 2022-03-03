@@ -12,7 +12,7 @@ class LocationsController < ApplicationController
     @location.save
     if @location.save
       flash[:notice] = "success"
-      redirect_to home_path
+      redirect_to locations_path
     else
       flash[:notice] = "failure"
       render 'new'
@@ -21,6 +21,7 @@ class LocationsController < ApplicationController
 
   def index
     @locations = Location.all
+    @location = Location.new
   end
 
   def show

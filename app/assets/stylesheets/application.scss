@@ -54,6 +54,7 @@ $green: rgb(0, 95, 0);
 .frame-list-map {
   display: grid;
   grid-template-columns: 30vw 50vw;
+  gap: 20px;
 }
 
 #map {

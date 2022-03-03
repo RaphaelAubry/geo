@@ -1,26 +1,5 @@
 <h3>Enregistrer</h3>
 
-<div class="frame-form">
-
-  <%= simple_form_for(@location, html: { class: 'form-inline' }) do |f| %>
-    <%= f.input :name %>
-
-    <div class="input string optional location_lonlat">
-      <label class="string optional" for="location_lonlat">Lonlat</label>
-      <input id="location_lonlat" class="string optional" type="text" name="location[lonlat]">
-    </div>
-
-    <div class="input string optional location_quadrilatere">
-      <label class="string optional" for="location_quadrilatere">Quadrilatere</label>
-      <input id="location_quadrilatere" class="string optional" type="text" name="location[quadrilatere]">
-    </div>
-
-    <div class="frame-button">
-      <%= f.button :submit, class: "button" %>
-    </div>
-
-  <% end %>
-
-</div>
+<%= render 'form', locals: { location: @location } %>
 
 <%= link_to "retour", :back %>

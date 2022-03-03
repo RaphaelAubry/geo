@@ -8,7 +8,7 @@ def to_feature
                 'geometry': {
                   'type': 'Polygon',
                   'coordinates':
-                      quadrilatere.coordinates
+                     quadrilatere&.coordinates
                 }
               }
             }
