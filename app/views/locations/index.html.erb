@@ -9,7 +9,7 @@
         <p><%= location.lonlat %></p>
         <p><%= location.quadrilatere %></p>
 
-        <div class="polygon" data-id="<%= location.id %>" data-polygon="<%= @polygon.to_json %>"></div>
+        <div class="polygon" data-id="<%= location.id %>" data-polygon="<%= location.to_feature.to_json %>"></div>
 
       </div>
     <% end %>

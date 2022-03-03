@@ -9,37 +9,42 @@ const initMap = () => {
   });
 
   map.on('load', () => {
-    // Add a data source containing GeoJSON data.
-    map.addSource(getFeatureID(), JSON.parse(getFeature()))
 
-    // Add a new layer to visualize the polygon.
-    map.addLayer({
-      'id': 'maine',
-      'type': 'fill',
-      'source': getFeatureID(), // reference the data source
-      'layout': {},
-      'paint': {
-        'fill-color': '#0080ff',
-        'fill-opacity': 0.5
-      }
+    const sources = document.querySelectorAll(".polygon")
+
+    sources.forEach(source => {
+      // Add a data source containing GeoJSON data.
+      map.addSource(source.dataset.id, JSON.parse(source.dataset.polygon))
+      console.log(source)
+      // Add a new layer to visualize the polygon.
+      map.addLayer({
+        'id': 'fill' + source.dataset.id,
+        'type': 'fill',
+        'source': source.dataset.id, // reference the data source
+        'layout': {},
+        'paint': {
+          'fill-color': '#0080ff',
+          'fill-opacity': 0.5
+        }
+      });
+      // Add a black outline around the polygon.
+      map.addLayer({
+        'id': 'line' + source.dataset.id,
+        'type': 'line',
+        'source': source.dataset.id,
+        'layout': {},
+        'paint': {
+          'line-color': '#000',
+          'line-width': 3
+        }
+      });
     });
-    // Add a black outline around the polygon.
-    map.addLayer({
-      'id': 'outline',
-      'type': 'line',
-      'source': getFeatureID(),
-      'layout': {},
-      'paint': {
-        'line-color': '#000',
-        'line-width': 3
-      }
-    });
-  });
+  })
+
 }
 
 const getFeature = () => {
-  const polygon = document.querySelector(".polygon")
-    return polygon.dataset.polygon
+  return document.querySelector(".polygon").dataset.polygon
 }
 
 const getFeatureID = () => {

@@ -21,9 +21,6 @@ class LocationsController < ApplicationController
 
   def index
     @locations = Location.all
-    @polygon = Array.new
-    #construire les coordonnées [[[x1,y1],[x2,y2]]]
-    @polygon = Location.first.to_feature if Location.first
   end
 
   def show
