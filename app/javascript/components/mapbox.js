@@ -38,7 +38,7 @@ const initMap = () => {
             'layout': {},
             'paint': {
               'line-color': '#000',
-              'line-width': 3
+              'line-width': 1
             }
           });
 
@@ -62,4 +62,16 @@ const getFeatureID = () => {
   return document.querySelector(".polygon").dataset.id
 }
 
-export { initMap }
+const setInputQuadrilatere = () => {
+  const form = document.getElementById("new_location")
+  form.addEventListener('submit', (event) => {
+    const regex = /[,]$/
+    const subst = ``
+    const result = document.getElementById('location_quadrilatere').value.replace(regex, subst)
+    document.getElementById('location_quadrilatere').value =
+      'POLYGON((' + result + '))'
+  });
+}
+
+
+export { initMap, setInputQuadrilatere  }
