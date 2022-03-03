@@ -1,0 +1,28 @@
+<h3>Liste</h3>
+
+
+
+<div class="frame-list-map">
+
+  <div>
+    <%= render 'form' %>
+    <% @locations.each do |location| %>
+      <div class="">
+        <p><%= location.name %></p>
+        <p><%= location.lonlat %></p>
+        <p><%= location.quadrilatere %></p>
+
+        <div class="polygon" data-id="<%= location.id %>" data-polygon="<%= location.to_feature.to_json %>"></div>
+
+      </div>
+    <% end %>
+  </div>
+
+  <div>
+    <div id="map">
+    </div>
+  </div>
+
+</div>
+
+<%= link_to "retour", :back %>

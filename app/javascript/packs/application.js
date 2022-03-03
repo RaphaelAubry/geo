@@ -7,7 +7,16 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import { initMap, setInputQuadrilatere } from '../components/mapbox.js'
+
+
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+document.addEventListener('turbolinks:load', () => {
+  console.log("Turbolinks load")
+  initMap();
+  setInputQuadrilatere();
+})

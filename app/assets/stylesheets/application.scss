@@ -1,0 +1,64 @@
+@import "bootstrap/scss/bootstrap";
+
+.frame-1 {
+  display: flex;
+  justify-content: center;
+  margin: auto 0;
+}
+
+.frame-2 {
+  width: 70vw;
+  padding: 40px 0px;
+}
+
+$green: rgb(0, 95, 0);
+
+.button {
+  background: $green;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 20px;
+  opacity: 1;
+  border: 1px solid $green;
+  margin-right: 10px;
+  &:hover {
+    color: $green;
+    background: white;
+    border: 1px solid $green;
+    transition: all 0.5s ease;
+  }
+  &:focus {
+    background: white;
+    color: $green;
+    border: 2px solid $green !important;
+    box-shadow: 0px 0px 0px 0px $green;
+  }
+}
+
+.frame-form {
+  margin: 20px 0px;
+}
+
+.frame-button {
+  margin: 20px 0px;
+}
+
+.input, .string, .optional {
+  display: block;
+}
+
+.string, .optional {
+  margin: 5px 0px;
+}
+
+.frame-list-map {
+  display: grid;
+  grid-template-columns: 30vw 50vw;
+  gap: 20px;
+}
+
+#map {
+  width: 770px;
+  height: 500px;
+  border-radius: 4px;
+}
