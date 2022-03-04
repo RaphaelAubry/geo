@@ -85,3 +85,5 @@ production:
   database: geo_production
   username: geo
   password: <%= ENV['GEO_DATABASE_PASSWORD'] %>
+  adapter: postgis
+  url: <%= ENV.fetch("DATABASE_URL").gsub(/postgres/, 'postgis') %>
